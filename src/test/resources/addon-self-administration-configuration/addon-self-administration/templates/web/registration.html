@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap.min.css"
           th:href="@{/css/bootstrap.min.css}"/>
+
     <link rel="stylesheet" type="text/css" href="../../resources/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 
@@ -28,34 +29,34 @@
             Error message
         </div>
         <fieldset>
-            <div th:replace="htmlfield :: defaultInput('userName', 'text', true)"></div>
-            <div th:replace="htmlfield :: defaultInput('email', 'email', true)"></div>
-            <div th:replace="htmlfield :: defaultInput('password', 'password', true)"></div>
-            <div th:replace="htmlfield :: defaultInput('confirmPassword', 'password', true)"></div>
-            <div th:replace="htmlfield :: defaultInput('formattedName', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('familyName', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('givenName', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('middleName', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('honorificPrefix', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('honorificSuffix', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('displayName', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('nickName', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('profileUrl', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('title', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('preferredLanguage', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('locale', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('timezone', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('phoneNumber', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('im', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('photo', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('formattedAddress', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('streetAddress', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('locality', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('region', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('postalCode', 'text', false)"></div>
-            <div th:replace="htmlfield :: defaultInput('country', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('userName', 'text', true)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('email', 'email', true)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('password', 'password', true)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('confirmPassword', 'password', true)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('formattedName', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('familyName', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('givenName', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('middleName', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('honorificPrefix', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('honorificSuffix', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('displayName', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('nickName', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('profileUrl', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('title', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('preferredLanguage', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('locale', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('timezone', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('phoneNumber', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('im', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('photo', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('formattedAddress', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('streetAddress', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('locality', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('region', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('postalCode', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: defaultInput('country', 'text', false)"></div>
 
-            <div th:replace="htmlfield :: extensioninput('urn:client:extension', 'age', 'text', false)"></div>
+            <div th:replace="web/htmlfield :: extensioninput('urn:client:extension', 'age', 'text', false)"></div>
 
             <button class="btn btn-lg btn-primary btn-block"
                     type="submit"
