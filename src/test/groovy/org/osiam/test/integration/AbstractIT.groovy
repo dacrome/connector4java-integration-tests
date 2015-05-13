@@ -53,7 +53,7 @@ abstract class AbstractIT extends Specification {
     private static final String AUTH_ENDPOINT
 
     protected static final String RESOURCE_ENDPOINT
-    protected static final String REGISTRATION_ENDPOINT
+    protected static final String SELF_ADMINISTRATION_ENDPOINT
     protected static final String SELF_ADMIN_URN = 'urn:org.osiam:scim:extensions:addon-self-administration'
     protected static final OsiamConnector OSIAM_CONNECTOR
 
@@ -75,7 +75,8 @@ abstract class AbstractIT extends Specification {
         final String osiamHost = System.getProperty('osiam.test.host', 'http://localhost:8180')
         AUTH_ENDPOINT = "${osiamHost}/osiam-auth-server"
         RESOURCE_ENDPOINT = "${osiamHost}/osiam-resource-server"
-        REGISTRATION_ENDPOINT = "${osiamHost}/addon-self-administration"
+        SELF_ADMINISTRATION_ENDPOINT = "${System.getProperty('osiam.host.protocol', 'http')}://" +
+                "${System.getProperty('osiam.host', 'localhost')}:50513"
 
         OSIAM_CONNECTOR = new OsiamConnector.Builder()
                 .setAuthServerEndpoint(AUTH_ENDPOINT)

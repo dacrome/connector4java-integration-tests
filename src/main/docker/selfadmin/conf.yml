@@ -1,0 +1,20 @@
+packaging:
+  add:
+    - target/dependency/addon-self-administration-${version.osiam.addon-self-administration}.jar
+    - target/dependency/addon-self-administration-plugin-example.jar
+
+links:
+  - tomcat
+
+ports:
+  - 50513
+
+healthChecks:
+  pings:
+    - url: http://localhost:50513
+      timeout: 10000
+      pattern: osiam-self-administration
+
+tag: ${project.artifactId}_selfadmin-${database.container}
+
+maxLogLines: 1000

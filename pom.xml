@@ -395,7 +395,7 @@
                         <id>download-addon-self-administration</id>
                         <phase>generate-resources</phase>
                         <goals>
-                            <goal>unpack</goal>
+                            <goal>copy</goal>
                         </goals>
                         <configuration>
                             <artifactItems>
@@ -403,12 +403,9 @@
                                     <groupId>org.osiam</groupId>
                                     <artifactId>addon-self-administration</artifactId>
                                     <version>${version.osiam.addon-self-administration}</version>
-                                    <type>war</type>
+                                    <type>jar</type>
                                 </artifactItem>
                             </artifactItems>
-                            <outputDirectory>
-                                ${project.build.directory}/addon-self-administration
-                            </outputDirectory>
                             <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
                     </execution>
@@ -456,30 +453,6 @@
                                 <resource>
                                     <directory>src/test/resources/auth-server-configuration</directory>
                                     <include>auth-server/</include>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-addon-self-administration</id>
-                        <phase>generate-test-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>
-                                ${project.build.directory}/addon-self-administration/WEB-INF/classes
-                            </outputDirectory>
-                            <overwrite>true</overwrite>
-                            <resources>
-                                <resource>
-                                    <directory>src/test/resources/addon-self-administration-configuration</directory>
-                                    <include>**/**</include>
-                                </resource>
-                                <resource>
-                                    <directory>src/test/resources/addon-self-administration-configuration</directory>
-                                    <include>addon-self-administration.properties</include>
-                                    <filtering>true</filtering>
                                 </resource>
                             </resources>
                         </configuration>

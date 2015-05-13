@@ -15,7 +15,7 @@
   </context-param>
   <context-param>
     <param-name>greenmail.smtp.port</param-name>
-    <param-value>10025</param-value>
+    <param-value>11025</param-value>
   </context-param>
   <context-param>
     <param-name>greenmail.pop3.host</param-name>
@@ -28,8 +28,8 @@
   <context-param>
     <param-name>greenmail.users</param-name>
     <param-value>
-      user1:password@localhost
-      user2:password2@localhost
+      user1:password@tomcat
+      user2:password2@tomcat
     </param-value>
   </context-param>
 

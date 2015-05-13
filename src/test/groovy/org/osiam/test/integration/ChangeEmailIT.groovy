@@ -53,10 +53,10 @@ class ChangeEmailIT extends AbstractIT {
         def responseContentType
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.GET, ContentType.TEXT) {
-            uri.path = REGISTRATION_ENDPOINT + '/email'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/email'
             headers.Accept = 'text/html'
 
             response.success = { resp, html ->
@@ -71,7 +71,7 @@ class ChangeEmailIT extends AbstractIT {
         responseContentType.contains(ContentType.HTML.toString())
         responseContent.contains('</form>')
         responseContent.count('ng-model') == 2
-        responseContent.contains('url: \'http://localhost:8180\'')
+        responseContent.contains('url: \'http://localhost:50513\'')
     }
 
     def 'The requested email change creates confirmation token and saves new email temporary'() {
@@ -83,10 +83,10 @@ class ChangeEmailIT extends AbstractIT {
         def responseStatusCode
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/email/change'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/email/change'
             send URLENC, [newEmailValue: newEmailValue]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
             headers.'Accept-Language' = 'en, en-US'
@@ -130,10 +130,10 @@ class ChangeEmailIT extends AbstractIT {
         def temp
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/email/confirm'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/email/confirm'
             send URLENC, [userId: userId, confirmToken: confirmToken]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
             headers.'Accept-Language' = 'en, en-US'
@@ -171,10 +171,10 @@ class ChangeEmailIT extends AbstractIT {
         def temp
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/email/confirm'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/email/confirm'
             send URLENC, [userId: userId, confirmToken: confirmToken]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
             headers.'Accept-Language' = 'en, en-US'
@@ -217,10 +217,10 @@ class ChangeEmailIT extends AbstractIT {
         def responseStatusCode
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/email/confirm'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/email/confirm'
             send URLENC, [userId: userId, confirmToken: confirmToken]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
             headers.'Accept-Language' = 'en, en-US'
@@ -243,10 +243,10 @@ class ChangeEmailIT extends AbstractIT {
         def responseStatusCode
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/email/confirm'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/email/confirm'
             send URLENC, [userId: userId, confirmToken: confirmToken]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
             headers.'Accept-Language' = 'en, en-US'

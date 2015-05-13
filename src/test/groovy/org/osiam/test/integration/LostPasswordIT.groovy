@@ -53,10 +53,10 @@ class LostPasswordIT extends AbstractIT {
         def statusCode
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) { req ->
-            uri.path = REGISTRATION_ENDPOINT + '/password/lost/' + userId
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/lost/' + userId
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
             headers.'Accept-Language' = 'en, en-US'
 
@@ -91,10 +91,10 @@ class LostPasswordIT extends AbstractIT {
         def savedUserId
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/password/change/' + userId
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/change/' + userId
             send URLENC, [oneTimePassword: otp, newPassword: newPassword]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
 
@@ -121,10 +121,10 @@ class LostPasswordIT extends AbstractIT {
         def savedUserId
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/password/change/' + userId
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/change/' + userId
             send URLENC, [oneTimePassword: otp, newPassword: newPassword]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
 
@@ -150,16 +150,16 @@ class LostPasswordIT extends AbstractIT {
         def statusCode
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/password/change/' + userId
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/change/' + userId
             send URLENC, [oneTimePassword: otp, newPassword: newPassword]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
         }
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/password/change/' + userId
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/change/' + userId
             send URLENC, [oneTimePassword: otp, newPassword: newPassword]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
 
@@ -180,10 +180,10 @@ class LostPasswordIT extends AbstractIT {
         def statusCode
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/password/change/' + userId
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/change/' + userId
             send URLENC, [oneTimePassword: otp, newPassword: newPassword]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
 
@@ -206,10 +206,10 @@ class LostPasswordIT extends AbstractIT {
         def savedUserId
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/password/change'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/change'
             send URLENC, [oneTimePassword: otp, newPassword: newPassword]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
 
@@ -237,10 +237,10 @@ class LostPasswordIT extends AbstractIT {
         def savedUserId
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/password/change'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/change'
             send URLENC, [oneTimePassword: otp, newPassword: newPassword]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
 
@@ -267,16 +267,16 @@ class LostPasswordIT extends AbstractIT {
         def statusCode
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/password/change/' + userId
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/change/' + userId
             send URLENC, [oneTimePassword: otp, newPassword: newPassword]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
         }
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/password/change/' + userId
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/change/' + userId
             send URLENC, [oneTimePassword: otp, newPassword: newPassword]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
 
@@ -298,10 +298,10 @@ class LostPasswordIT extends AbstractIT {
         def statusCode
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST) {
-            uri.path = REGISTRATION_ENDPOINT + '/password/change/' + userId
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/change/' + userId
             send URLENC, [oneTimePassword: otp, newPassword: newPassword]
             headers.'Authorization' = 'Bearer ' + accessToken.getToken()
 
@@ -324,10 +324,10 @@ class LostPasswordIT extends AbstractIT {
         def responseContent
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.GET, ContentType.TEXT) {
-            uri.path = REGISTRATION_ENDPOINT + '/password/lostForm'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/password/lostForm'
             uri.query = [oneTimePassword: otp, userId: userId]
             headers.Accept = 'text/html'
 
@@ -344,6 +344,6 @@ class LostPasswordIT extends AbstractIT {
         responseContent.contains('\$scope.otp = \'otpVal\'')
         responseContent.contains('\$scope.id = \'userIdVal\'')
         responseContent.count('ng-model') == 2
-        responseContent.contains('url: \'http://localhost:8180\'')
+        responseContent.contains('url: \'http://localhost:50513\'')
     }
 }

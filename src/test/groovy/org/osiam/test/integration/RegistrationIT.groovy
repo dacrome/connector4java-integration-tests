@@ -76,10 +76,10 @@ class RegistrationIT extends AbstractIT {
         def responseStatus
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.GET, ContentType.TEXT) { req ->
-            uri.path = REGISTRATION_ENDPOINT + '/registration'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/registration'
             headers.Accept = 'text/html'
 
             response.success = { resp, html ->
@@ -110,11 +110,11 @@ class RegistrationIT extends AbstractIT {
         def responseStatus
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST, ContentType.URLENC) { req ->
             headers.'Accept-Language' = 'en, en-US'
-            uri.path = REGISTRATION_ENDPOINT + '/registration'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/registration'
             body = userToRegister
 
             response.success = { resp ->
@@ -149,11 +149,11 @@ class RegistrationIT extends AbstractIT {
         def responseStatus
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST, ContentType.URLENC) { req ->
             headers.'Accept-Language' = 'de, de-DE'
-            uri.path = REGISTRATION_ENDPOINT + '/registration'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/registration'
             body = userToRegister
 
             response.success = { resp ->
@@ -183,10 +183,10 @@ class RegistrationIT extends AbstractIT {
         def responseStatus
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.GET) { req ->
-            uri.path = REGISTRATION_ENDPOINT + '/registration/activation'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/registration/activation'
             uri.query = [userId: createdUserId, activationToken: activationToken]
 
             response.success = { resp ->
@@ -210,10 +210,10 @@ class RegistrationIT extends AbstractIT {
         def responseStatus
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.GET) { req ->
-            uri.path = REGISTRATION_ENDPOINT + '/registration/activation'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/registration/activation'
             uri.query = [userId: createdUserId, activationToken: activationToken]
 
             response.failure = { resp ->
@@ -236,10 +236,10 @@ class RegistrationIT extends AbstractIT {
         def responseStatus
 
         when:
-        def httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        def httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.GET) { req ->
-            uri.path = REGISTRATION_ENDPOINT + '/registration/activation'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/registration/activation'
             uri.query = [userId: createdUserId, activationToken: activationToken]
 
             response.success = { resp ->
@@ -264,10 +264,10 @@ class RegistrationIT extends AbstractIT {
         def secondResponseStatus
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.GET) { req ->
-            uri.path = REGISTRATION_ENDPOINT + '/registration/activation'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/registration/activation'
             uri.query = [userId: createdUserId, activationToken: activationToken]
 
             response.success = { resp ->
@@ -276,7 +276,7 @@ class RegistrationIT extends AbstractIT {
         }
 
         httpClient.request(Method.GET) { req ->
-            uri.path = REGISTRATION_ENDPOINT + '/registration/activation'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/registration/activation'
             uri.query = [userId: createdUserId, activationToken: activationToken]
 
             response.success = { resp ->
@@ -301,11 +301,11 @@ class RegistrationIT extends AbstractIT {
         def responseStatus
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST, ContentType.URLENC) { req ->
             headers.'Accept-Language' = 'en, en-US'
-            uri.path = REGISTRATION_ENDPOINT + '/registration'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/registration'
             body = userToRegister
 
             response.success = { resp ->
@@ -348,10 +348,10 @@ class RegistrationIT extends AbstractIT {
         def responseStatus
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST, ContentType.URLENC) { req ->
-            uri.path = REGISTRATION_ENDPOINT + '/registration'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/registration'
             body = userToRegister
 
             response.success = { resp ->
@@ -385,7 +385,7 @@ class RegistrationIT extends AbstractIT {
         def userToRegister = 'email=email&password= &profileUrl=not an url&photo= hello '
 
         when:
-        def response = client.target(REGISTRATION_ENDPOINT + '/registration')
+        def response = client.target(SELF_ADMINISTRATION_ENDPOINT + '/registration')
                 .request()
                 .post(Entity.entity(userToRegister, MediaType.APPLICATION_FORM_URLENCODED), String.class)
 
@@ -401,7 +401,7 @@ class RegistrationIT extends AbstractIT {
         def userToRegister = 'email=email@osiam.com&password=0123456789'
 
         when:
-        def response = client.target(REGISTRATION_ENDPOINT + '/registration')
+        def response = client.target(SELF_ADMINISTRATION_ENDPOINT + '/registration')
                 .request()
                 .post(Entity.entity(userToRegister, MediaType.APPLICATION_FORM_URLENCODED), String.class)
 
@@ -419,11 +419,11 @@ class RegistrationIT extends AbstractIT {
         def responseStatus
 
         when:
-        HTTPBuilder httpClient = new HTTPBuilder(REGISTRATION_ENDPOINT)
+        HTTPBuilder httpClient = new HTTPBuilder(SELF_ADMINISTRATION_ENDPOINT)
 
         httpClient.request(Method.POST, ContentType.URLENC) { req ->
             headers.'Accept-Language' = 'en, en-US'
-            uri.path = REGISTRATION_ENDPOINT + '/registration'
+            uri.path = SELF_ADMINISTRATION_ENDPOINT + '/registration'
             body = userToRegister
 
             response.success = { resp ->
