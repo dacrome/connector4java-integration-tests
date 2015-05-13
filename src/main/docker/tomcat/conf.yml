@@ -1,6 +1,6 @@
 packaging:
   add:
-    - target/osiam-auth-server
+    - target/dependency/auth-server-${version.osiam.auth-server}.war
     - target/osiam-resource-server
     - target/dependency/addon-self-administration-${version.osiam.addon-self-administration}.war
     - src/test/resources/addon-self-administration-configuration/addon-self-administration.properties

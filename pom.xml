@@ -348,7 +348,7 @@
                         <id>download-osiam-auth-server</id>
                         <phase>generate-resources</phase>
                         <goals>
-                            <goal>unpack</goal>
+                            <goal>copy</goal>
                         </goals>
                         <configuration>
                             <artifactItems>
@@ -359,8 +359,6 @@
                                     <type>war</type>
                                 </artifactItem>
                             </artifactItems>
-                            <outputDirectory>${project.build.directory}/osiam-auth-server
-                            </outputDirectory>
                             <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
                     </execution>
@@ -430,49 +428,49 @@
                             </resources>
                         </configuration>
                     </execution>
-                    <execution>
-                        <id>copy-osiam-auth-resources</id>
-                        <phase>generate-test-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>
-                                ${project.build.directory}/osiam-auth-server/WEB-INF/classes
-                            </outputDirectory>
-                            <overwrite>true</overwrite>
-                            <resources>
-                                <resource>
-                                    <directory>src/test/resources/auth-server-configuration</directory>
-                                    <include>auth-server/</include>
-                                    <include>test-ldap-server.ldif</include>
-                                </resource>
-                                <resource>
-                                    <directory>src/test/resources</directory>
-                                    <include>log4j.properties</include>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-osiam-auth-web-config</id>
-                        <phase>generate-test-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>
-                                ${project.build.directory}/osiam-auth-server/WEB-INF
-                            </outputDirectory>
-                            <overwrite>true</overwrite>
-                            <resources>
-                                <resource>
-                                    <directory>src/test/resources/auth-server-configuration</directory>
-                                    <include>user-authentication.xml</include>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
+                    <!--<execution>-->
+                        <!--<id>copy-osiam-auth-resources</id>-->
+                        <!--<phase>generate-test-resources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>copy-resources</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<outputDirectory>-->
+                                <!--${project.build.directory}/osiam-auth-server/WEB-INF/classes-->
+                            <!--</outputDirectory>-->
+                            <!--<overwrite>true</overwrite>-->
+                            <!--<resources>-->
+                                <!--<resource>-->
+                                    <!--<directory>src/test/resources/auth-server-configuration</directory>-->
+                                    <!--<include>auth-server/</include>-->
+                                    <!--<include>test-ldap-server.ldif</include>-->
+                                <!--</resource>-->
+                                <!--<resource>-->
+                                    <!--<directory>src/test/resources</directory>-->
+                                    <!--<include>log4j.properties</include>-->
+                                <!--</resource>-->
+                            <!--</resources>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<id>copy-osiam-auth-web-config</id>-->
+                        <!--<phase>generate-test-resources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>copy-resources</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<outputDirectory>-->
+                                <!--${project.build.directory}/osiam-auth-server/WEB-INF-->
+                            <!--</outputDirectory>-->
+                            <!--<overwrite>true</overwrite>-->
+                            <!--<resources>-->
+                                <!--<resource>-->
+                                    <!--<directory>src/test/resources/auth-server-configuration</directory>-->
+                                    <!--<include>user-authentication.xml</include>-->
+                                <!--</resource>-->
+                            <!--</resources>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
                 </executions>
             </plugin>
         </plugins>
@@ -511,7 +509,7 @@
                                                 ${project.build.directory}/osiam-resource-server/WEB-INF/classes/resource-server.properties
                                             </destinationFile>
                                         </fileSet>
-                                        <!-- auth-server -->
+                                        <!-- auth-server
                                         <fileSet>
                                             <sourceFile>
                                                 src/test/resources/auth-server-configuration/auth-server_pg.properties
@@ -519,7 +517,7 @@
                                             <destinationFile>
                                                 ${project.build.directory}/osiam-auth-server/WEB-INF/classes/auth-server.properties
                                             </destinationFile>
-                                        </fileSet>
+                                        </fileSet> -->
                                         <fileSet>
                                             <sourceFile>
                                                 src/test/resources/integration-tests_pg.properties

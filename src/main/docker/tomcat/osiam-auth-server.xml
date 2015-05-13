@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Context path="/osiam-auth-server" docBase="/var/lib/osiam/auth-server.war"
+         debug="0" privileged="true">
+</Context>

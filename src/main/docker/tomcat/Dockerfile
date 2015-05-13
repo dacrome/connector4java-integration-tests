@@ -1,8 +1,9 @@
 FROM tomcat:8-jre8
 
-COPY osiam-resource-server $CATALINA_HOME/webapps/osiam-resource-server
-COPY osiam-auth-server $CATALINA_HOME/webapps/osiam-auth-server
 RUN mkdir -p /var/lib/osiam
+COPY osiam-resource-server $CATALINA_HOME/webapps/osiam-resource-server
+COPY auth-server-${version.osiam.auth-server}.war $CATALINA_HOME/webapps/osiam-auth-server.war
+# COPY osiam-auth-server.xml $CATALINA_HOME/conf/Catalina/localhost/
 COPY addon-self-administration-${version.osiam.addon-self-administration}.war /var/lib/osiam/addon-self-administration.war
 COPY addon-self-administration.properties /var/lib/osiam/
 COPY addon-self-administration /var/lib/osiam/addon-self-administration
