@@ -31,6 +31,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.osiam.client.exception.BadCredentialsException;
+import org.osiam.client.exception.BadRequestException;
 import org.osiam.client.exception.ConnectionInitializationException;
 import org.osiam.client.oauth.AccessToken;
 import org.osiam.client.oauth.Scope;
@@ -61,9 +62,14 @@ public class LoginResourceOwnerPasswordCredentialsIT extends AbstractIntegration
         assertNotNull("The refresh token was null.", accessToken.getRefreshToken());
     }
 
-    @Test(expected = BadCredentialsException.class)
+    @Test(expected = BadRequestException.class)
     public void retrieve_access_token_with_wrong_credentials_throws_bad_credentials() {
         OSIAM_CONNECTOR.retrieveAccessToken("marissa", "wrong", Scope.ADMIN);
+    }
+
+    @Test(expected = BadCredentialsException.class)
+    public void retrieve_access_token_with_not_existing_throws_bad_credentials() {
+        OSIAM_CONNECTOR.retrieveAccessToken("wrong", "wrong", Scope.ADMIN);
     }
 
     @Ignore
