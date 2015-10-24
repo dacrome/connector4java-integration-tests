@@ -101,6 +101,7 @@ class RegistrationIT extends AbstractIT {
         responseContent.contains('displayName')
         responseContent.contains('profileUrl')
         responseContent.contains('urn:client:extension')
+        (responseContent =~ /required/).count == 12
     }
 
     def 'The registration controller should complete the registration process if a POST request send to "/registration"'() {
