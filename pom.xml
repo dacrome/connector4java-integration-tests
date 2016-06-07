@@ -56,7 +56,6 @@
         <version.spring>4.2.6.RELEASE</version.spring>
 
         <!-- OSIAM -->
-        <version.osiam>3.0-SNAPSHOT</version.osiam>
         <version.osiam.connector4java>1.9-SNAPSHOT</version.osiam.connector4java>
     </properties>
 
@@ -331,31 +330,6 @@
                             <goal>integration-test</goal>
                             <goal>verify</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>download-osiam</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.osiam</groupId>
-                                    <artifactId>osiam</artifactId>
-                                    <version>${version.osiam}</version>
-                                    <type>war</type>
-                                    <destFileName>osiam.war</destFileName>
-                                </artifactItem>
-                            </artifactItems>
-                            <overWriteSnapshots>true</overWriteSnapshots>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

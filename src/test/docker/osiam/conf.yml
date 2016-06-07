@@ -1,7 +1,3 @@
-packaging:
-  add:
-    - target/dependency/osiam.war
-
 links:
   - ${database.container}
   - ldap

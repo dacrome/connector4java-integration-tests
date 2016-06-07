@@ -1,6 +1,6 @@
 FROM java:8-jre
 
-COPY osiam.war /osiam.war
+ADD https://dl.bintray.com/osiam/OSIAM/osiam-latest.war /osiam.war
 RUN chmod +x /osiam.war
 RUN /osiam.war initHome --osiam.home=/var/lib/osiam
 COPY osiam_${database.container}.yaml /var/lib/osiam/config/osiam.yaml
